@@ -47,13 +47,14 @@ public class Consulta extends HttpServlet {
 		
 		
 		AparcamientoMotoVO motoDetalle = aparcamientoMotoDAO.getDetailAparcamientoMoto(id);
-		
+		 String usuario = (String) request.getSession().getAttribute("Nombre");
+	      
 		 
 		
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
 		out.println("<body>");
-		out.println("<h1>APARCAMIENTO MOTO</h1>");
+		out.println("<h1>HOLA "+usuario+"</h1>");
 		out.println(motoDetalle.toString());
 		out.println("</body>");
 		out.println("</html>");

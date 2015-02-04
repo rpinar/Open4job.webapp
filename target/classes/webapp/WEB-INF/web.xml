@@ -15,6 +15,7 @@
 		<servlet-name>Consulta</servlet-name>
 		<servlet-class>open4job.web.Consulta</servlet-class>
 	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>Prueba</servlet-name>
 		<url-pattern>/Prueba</url-pattern>
@@ -23,12 +24,8 @@
 		<servlet-name>Consulta</servlet-name>
 		<url-pattern>/Consulta</url-pattern>
 	</servlet-mapping>
+	
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.htm</welcome-file>
 		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.htm</welcome-file>
-		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>
