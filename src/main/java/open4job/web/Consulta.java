@@ -38,6 +38,7 @@ public class Consulta extends HttpServlet {
 
 		String url = "jdbc:oracle:thin:" + user + "/" + password + "@" + host
 				+ ":" + puerto + ":" + sid;
+		//String url = "jdbc:oracle:thin:test/test@54.154.192.80:1521:xe";
 
 	
 		AparcamientoMotoDAO aparcamientoMotoDAO = new AparcamientoMotoDAO(
@@ -55,7 +56,8 @@ public class Consulta extends HttpServlet {
 		out.println("<html>");
 		out.println("<body>");
 		out.println("<h1>HOLA "+usuario+"</h1>");
-		out.println(motoDetalle.toString());
+		if (motoDetalle==null) out.println("Nada que hacer");
+		else out.println(motoDetalle.toString());
 		out.println("</body>");
 		out.println("</html>");
 

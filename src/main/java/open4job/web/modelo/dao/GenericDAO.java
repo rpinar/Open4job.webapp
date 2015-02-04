@@ -6,6 +6,11 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 public class GenericDAO {
 	public static final Logger logger = Logger.getLogger(GenericDAO.class
 			.getName());
@@ -60,6 +65,21 @@ public class GenericDAO {
 	public void abrirConexion() throws SQLException, ClassNotFoundException {
 
 		try {
+			
+			Context initContext = new InitialContext();
+			Context envContext = (Context) initContext.lookup("java:/comp/env");
+			
+			DataSource ds;
+			ds = (DataSource) envContext.lookup("jdbc/myoracle");
+			connection = ds.getConnection();
+			
+		
+		} catch (NamingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		/*try {
 
 			Class.forName(driver);
 			connection = DriverManager.getConnection(url, user, password);
@@ -71,7 +91,7 @@ public class GenericDAO {
 		} catch (SQLException e) {
 			logger.log(Level.SEVERE, "SQLException : " + e.getMessage());
 			throw e;
-		}
+		}*/
 
 	}
 
